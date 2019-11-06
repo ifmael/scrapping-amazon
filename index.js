@@ -9,8 +9,8 @@ const BESTSELLER_URL = 'https://www.amazon.es/gp/bestsellers';
 
 
 const getPriceFromString = (priceString) => {
-  const priceSplit = priceString.split(' ');
-  return  Number(priceSplit[0]) || Number(priceSplit[1])
+  const priceSplit = priceString.split(/\s/);
+  return  Number(priceSplit[0].replace(',','.')) || Number(priceSplit[1].replace(',','.'));
 };
 
 (async () => {
@@ -20,8 +20,12 @@ const getPriceFromString = (priceString) => {
     const page = await browser.newPage();
     let listCategories;
 
+    await page.exposeFunction('getPriceFromString', getPriceFromString);
     await page.goto(BESTSELLER_URL, { waitUntil: 'networkidle0' });
-
+    
+/*     await page.addScriptTag({
+      path:'./js/functions.js'
+    }); */
 
     const listCategoriesRaw = await readFile('./asserts/catetogories.json', 'utf8');
 
@@ -50,15 +54,14 @@ const getPriceFromString = (priceString) => {
     for(let i=0; i < listCategories.length; i++){
 
       await page.goto(listCategories[i].href, { waitUntil: 'networkidle0' });
-      const x =9;
-      const listProduct = await page.evaluate( getPriceFromString => {
+      const listProduct = await page.evaluate( async () => {
         const listProductNodes = document.querySelectorAll("#zg-ordered-list li");
         // debugger;
         let listProduct = [];
         for(let productNode of listProductNodes){
           const numReviewProduct = Number(productNode.querySelector('.aok-inline-block.zg-item div a.a-size-small.a-link-normal').innerText);
           debugger;
-          const priceProduct = getPriceFromString(productNode.querySelector('.aok-inline-block.zg-item   a.a-link-normal.a-text-normal span span').innerText);
+          const priceProduct = await getPriceFromString(productNode.querySelector('.aok-inline-block.zg-item   a.a-link-normal.a-text-normal span span').innerText);
           if(priceProduct > 30 && numReviewProduct > 50){
             listProduct.push({
               nameProduct: productNode.querySelector('.aok-inline-block.zg-item .p13n-sc-truncated').innerText,
@@ -68,7 +71,7 @@ const getPriceFromString = (priceString) => {
             });
           }
         }
-      },x );
+      });
       debugger;
     }
 
