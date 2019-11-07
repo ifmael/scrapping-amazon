@@ -13,6 +13,93 @@ const getPriceFromString = (priceString) => {
   return  Number(priceSplit[0].replace(',','.')) || Number(priceSplit[1].replace(',','.'));
 };
 
+const scrappeCategory = async (page,listCategories, parentCategory, targetCategories) => {
+  
+  for(let i=0; i < listCategories.length; i++){
+    try {
+      await page.goto(listCategories[i].href, { waitUntil: 'networkidle0' });
+      const listProduct = await page.evaluate( async () => {
+        const listProductNodes = document.querySelectorAll("#zg-ordered-list li");
+        let listProduct = [];
+        for(let productNode of listProductNodes){
+          const numReviewProduct = Number(productNode.querySelector('.aok-inline-block.zg-item div a.a-size-small.a-link-normal').innerText);
+          const priceProduct = await window.getPriceFromString(productNode.querySelector('.aok-inline-block.zg-item   a.a-link-normal.a-text-normal span span').innerText);
+          if(priceProduct > 30 && numReviewProduct > 50){
+            listProduct.push({
+              nameProduct: productNode.querySelector('.aok-inline-block.zg-item .p13n-sc-truncated').innerText,
+              numReviewProduct,
+              priceProduct,
+              href: productNode.querySelector('.aok-inline-block.zg-item a').href
+            });
+          }
+        }
+
+        return listProduct && listProduct.length > 0 && listProduct;
+      });
+      debugger;
+      if(listProduct && listProduct.length >0){
+        targetCategories.push({
+          category: listProduct[i].category,
+          products: listProduct,
+          href: listProduct[i].href,
+          parent_id: parentCategory
+        })
+      }
+
+      // Get the cagegories
+      debugger;
+      const subCategories = await page.evaluate( async () => {
+        const subCategoriesElement = document.querySelector('#zg_browseRoot ul ul');
+        debugger;
+
+      });
+
+
+
+    } catch (error) {
+      console.error(error);
+    }
+  }
+}
+
+
+
+/*   listCategories.reduce(async (targetCategories,category,index,array)=>{
+    await page.goto(category, { waitUntil: 'networkidle0' });
+    debugger;
+    const listProduct = await page.evaluate( async () => {
+      const listProductNodes = document.querySelectorAll("#zg-ordered-list li");
+      debugger;
+      let listProduct = [];
+      for(let productNode of listProductNodes){
+        const numReviewProduct = Number(productNode.querySelector('.aok-inline-block.zg-item div a.a-size-small.a-link-normal').innerText);
+        const priceProduct = await window.getPriceFromString(productNode.querySelector('.aok-inline-block.zg-item a.a-link-normal.a-text-normal span span').innerText);
+        if(priceProduct > 30 && numReviewProduct > 50){
+          debugger;
+          listProduct.push({
+            nameProduct: productNode.querySelector('.aok-inline-block.zg-item .p13n-sc-truncated').innerText,
+            numReviewProduct,
+            priceProduct,
+            href: productNode.querySelector('.aok-inline-block.zg-item a').href
+          });
+        }
+      }
+    }); 
+    debugger;
+    if(listProduct && listProduct.length >0){
+      targetCategories.push({
+        category: category.category,
+        products: listProduct,
+        href: category.href,
+        parent_id: parentCategory
+      })
+    }
+
+  }, targetCategories);
+
+};
+*/
+
 (async () => {
   try {
     const browser = await puppeteer.launch({devtools: true}); // {devtools: true}
@@ -50,8 +137,12 @@ const getPriceFromString = (priceString) => {
     } else {
       listCategories = JSON.parse(listCategoriesRaw);
     }
+    
+    const targetCategories = [];
 
-    for(let i=0; i < listCategories.length; i++){
+    await scrappeCategory(page,listCategories, undefined, targetCategories);
+
+    /* for(let i=0; i < listCategories.length; i++){
 
       await page.goto(listCategories[i].href, { waitUntil: 'networkidle0' });
       const listProduct = await page.evaluate( async () => {
@@ -60,9 +151,9 @@ const getPriceFromString = (priceString) => {
         let listProduct = [];
         for(let productNode of listProductNodes){
           const numReviewProduct = Number(productNode.querySelector('.aok-inline-block.zg-item div a.a-size-small.a-link-normal').innerText);
-          debugger;
-          const priceProduct = await getPriceFromString(productNode.querySelector('.aok-inline-block.zg-item   a.a-link-normal.a-text-normal span span').innerText);
+          const priceProduct = await window.getPriceFromString(productNode.querySelector('.aok-inline-block.zg-item   a.a-link-normal.a-text-normal span span').innerText);
           if(priceProduct > 30 && numReviewProduct > 50){
+            debugger;
             listProduct.push({
               nameProduct: productNode.querySelector('.aok-inline-block.zg-item .p13n-sc-truncated').innerText,
               numReviewProduct,
@@ -73,7 +164,7 @@ const getPriceFromString = (priceString) => {
         }
       });
       debugger;
-    }
+    } */
 
     
     await page.close()

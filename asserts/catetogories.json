@@ -1,1 +1,106 @@
-[{"category":"Alimentación y bebidas","href":"https://www.amazon.es/gp/bestsellers/grocery/ref=zg_bs_nav_0/258-9161685-0967252"},{"category":"Amazon Launchpad","href":"https://www.amazon.es/gp/bestsellers/boost/ref=zg_bs_nav_0/258-9161685-0967252"},{"category":"Apps y Juegos","href":"https://www.amazon.es/gp/bestsellers/mobile-apps/ref=zg_bs_nav_0/258-9161685-0967252"},{"category":"Bebé","href":"https://www.amazon.es/gp/bestsellers/baby/ref=zg_bs_nav_0/258-9161685-0967252"},{"category":"Belleza","href":"https://www.amazon.es/gp/bestsellers/beauty/ref=zg_bs_nav_0/258-9161685-0967252"},{"category":"Bricolaje y herramientas","href":"https://www.amazon.es/gp/bestsellers/tools/ref=zg_bs_nav_0/258-9161685-0967252"},{"category":"CDs y vinilos","href":"https://www.amazon.es/gp/bestsellers/music/ref=zg_bs_nav_0/258-9161685-0967252"},{"category":"Cheques regalo","href":"https://www.amazon.es/gp/bestsellers/gift-cards/ref=zg_bs_nav_0/258-9161685-0967252"},{"category":"Coche y moto","href":"https://www.amazon.es/gp/bestsellers/automotive/ref=zg_bs_nav_0/258-9161685-0967252"},{"category":"Deportes y aire libre","href":"https://www.amazon.es/gp/bestsellers/sports/ref=zg_bs_nav_0/258-9161685-0967252"},{"category":"Dispositivos Amazon y Accesorios","href":"https://www.amazon.es/gp/bestsellers/amazon-devices/ref=zg_bs_nav_0/258-9161685-0967252"},{"category":"Electrónica","href":"https://www.amazon.es/gp/bestsellers/electronics/ref=zg_bs_nav_0/258-9161685-0967252"},{"category":"Equipaje","href":"https://www.amazon.es/gp/bestsellers/luggage/ref=zg_bs_nav_0/258-9161685-0967252"},{"category":"Grandes electrodomésticos","href":"https://www.amazon.es/gp/bestsellers/appliances/ref=zg_bs_nav_0/258-9161685-0967252"},{"category":"Hogar y cocina","href":"https://www.amazon.es/gp/bestsellers/kitchen/ref=zg_bs_nav_0/258-9161685-0967252"},{"category":"Iluminación","href":"https://www.amazon.es/gp/bestsellers/lighting/ref=zg_bs_nav_0/258-9161685-0967252"},{"category":"Industria, empresas y ciencia","href":"https://www.amazon.es/gp/bestsellers/industrial/ref=zg_bs_nav_0/258-9161685-0967252"},{"category":"Informática","href":"https://www.amazon.es/gp/bestsellers/computers/ref=zg_bs_nav_0/258-9161685-0967252"},{"category":"Instrumentos musicales","href":"https://www.amazon.es/gp/bestsellers/musical-instruments/ref=zg_bs_nav_0/258-9161685-0967252"},{"category":"Jardín","href":"https://www.amazon.es/gp/bestsellers/lawn-garden/ref=zg_bs_nav_0/258-9161685-0967252"},{"category":"Joyería","href":"https://www.amazon.es/gp/bestsellers/jewelry/ref=zg_bs_nav_0/258-9161685-0967252"},{"category":"Juguetes y juegos","href":"https://www.amazon.es/gp/bestsellers/toys/ref=zg_bs_nav_0/258-9161685-0967252"},{"category":"Libros","href":"https://www.amazon.es/gp/bestsellers/books/ref=zg_bs_nav_0/258-9161685-0967252"},{"category":"Música Digital","href":"https://www.amazon.es/gp/bestsellers/dmusic/ref=zg_bs_nav_0/258-9161685-0967252"},{"category":"Oficina y papelería","href":"https://www.amazon.es/gp/bestsellers/office/ref=zg_bs_nav_0/258-9161685-0967252"},{"category":"Películas y TV","href":"https://www.amazon.es/gp/bestsellers/dvd/ref=zg_bs_nav_0/258-9161685-0967252"},{"category":"Productos Handmade","href":"https://www.amazon.es/gp/bestsellers/handmade/ref=zg_bs_nav_0/258-9161685-0967252"},{"category":"Productos para mascotas","href":"https://www.amazon.es/gp/bestsellers/pet-supplies/ref=zg_bs_nav_0/258-9161685-0967252"},{"category":"Relojes","href":"https://www.amazon.es/gp/bestsellers/watch/ref=zg_bs_nav_0/258-9161685-0967252"},{"category":"Ropa","href":"https://www.amazon.es/gp/bestsellers/apparel/ref=zg_bs_nav_0/258-9161685-0967252"},{"category":"Salud y cuidado personal","href":"https://www.amazon.es/gp/bestsellers/hpc/ref=zg_bs_nav_0/258-9161685-0967252"},{"category":"Software","href":"https://www.amazon.es/gp/bestsellers/software/ref=zg_bs_nav_0/258-9161685-0967252"},{"category":"Tienda Kindle","href":"https://www.amazon.es/gp/bestsellers/digital-text/ref=zg_bs_nav_0/258-9161685-0967252"},{"category":"Videojuegos","href":"https://www.amazon.es/gp/bestsellers/videogames/ref=zg_bs_nav_0/258-9161685-0967252"},{"category":"Zapatos y complementos","href":"https://www.amazon.es/gp/bestsellers/shoes/ref=zg_bs_nav_0/258-9161685-0967252"}]
+[{
+  "category": "Alimentación y bebidas",
+  "href": "https://www.amazon.es/gp/bestsellers/grocery/ref=zg_bs_nav_0/258-9161685-0967252"
+}, {
+  "category": "Amazon Launchpad",
+  "href": "https://www.amazon.es/gp/bestsellers/boost/ref=zg_bs_nav_0/258-9161685-0967252"
+}, {
+  "category": "Apps y Juegos",
+  "href": "https://www.amazon.es/gp/bestsellers/mobile-apps/ref=zg_bs_nav_0/258-9161685-0967252"
+}, {
+  "category": "Bebé",
+  "href": "https://www.amazon.es/gp/bestsellers/baby/ref=zg_bs_nav_0/258-9161685-0967252"
+}, {
+  "category": "Belleza",
+  "href": "https://www.amazon.es/gp/bestsellers/beauty/ref=zg_bs_nav_0/258-9161685-0967252"
+}, {
+  "category": "Bricolaje y herramientas",
+  "href": "https://www.amazon.es/gp/bestsellers/tools/ref=zg_bs_nav_0/258-9161685-0967252"
+}, {
+  "category": "CDs y vinilos",
+  "href": "https://www.amazon.es/gp/bestsellers/music/ref=zg_bs_nav_0/258-9161685-0967252"
+}, {
+  "category": "Cheques regalo",
+  "href": "https://www.amazon.es/gp/bestsellers/gift-cards/ref=zg_bs_nav_0/258-9161685-0967252"
+}, {
+  "category": "Coche y moto",
+  "href": "https://www.amazon.es/gp/bestsellers/automotive/ref=zg_bs_nav_0/258-9161685-0967252"
+}, {
+  "category": "Deportes y aire libre",
+  "href": "https://www.amazon.es/gp/bestsellers/sports/ref=zg_bs_nav_0/258-9161685-0967252"
+}, {
+  "category": "Dispositivos Amazon y Accesorios",
+  "href": "https://www.amazon.es/gp/bestsellers/amazon-devices/ref=zg_bs_nav_0/258-9161685-0967252"
+}, {
+  "category": "Electrónica",
+  "href": "https://www.amazon.es/gp/bestsellers/electronics/ref=zg_bs_nav_0/258-9161685-0967252"
+}, {
+  "category": "Equipaje",
+  "href": "https://www.amazon.es/gp/bestsellers/luggage/ref=zg_bs_nav_0/258-9161685-0967252"
+}, {
+  "category": "Grandes electrodomésticos",
+  "href": "https://www.amazon.es/gp/bestsellers/appliances/ref=zg_bs_nav_0/258-9161685-0967252"
+}, {
+  "category": "Hogar y cocina",
+  "href": "https://www.amazon.es/gp/bestsellers/kitchen/ref=zg_bs_nav_0/258-9161685-0967252"
+}, {
+  "category": "Iluminación",
+  "href": "https://www.amazon.es/gp/bestsellers/lighting/ref=zg_bs_nav_0/258-9161685-0967252"
+}, {
+  "category": "Industria, empresas y ciencia",
+  "href": "https://www.amazon.es/gp/bestsellers/industrial/ref=zg_bs_nav_0/258-9161685-0967252"
+}, {
+  "category": "Informática",
+  "href": "https://www.amazon.es/gp/bestsellers/computers/ref=zg_bs_nav_0/258-9161685-0967252"
+}, {
+  "category": "Instrumentos musicales",
+  "href": "https://www.amazon.es/gp/bestsellers/musical-instruments/ref=zg_bs_nav_0/258-9161685-0967252"
+}, {
+  "category": "Jardín",
+  "href": "https://www.amazon.es/gp/bestsellers/lawn-garden/ref=zg_bs_nav_0/258-9161685-0967252"
+}, {
+  "category": "Joyería",
+  "href": "https://www.amazon.es/gp/bestsellers/jewelry/ref=zg_bs_nav_0/258-9161685-0967252"
+}, {
+  "category": "Juguetes y juegos",
+  "href": "https://www.amazon.es/gp/bestsellers/toys/ref=zg_bs_nav_0/258-9161685-0967252"
+}, {
+  "category": "Libros",
+  "href": "https://www.amazon.es/gp/bestsellers/books/ref=zg_bs_nav_0/258-9161685-0967252"
+}, {
+  "category": "Música Digital",
+  "href": "https://www.amazon.es/gp/bestsellers/dmusic/ref=zg_bs_nav_0/258-9161685-0967252"
+}, {
+  "category": "Oficina y papelería",
+  "href": "https://www.amazon.es/gp/bestsellers/office/ref=zg_bs_nav_0/258-9161685-0967252"
+}, {
+  "category": "Películas y TV",
+  "href": "https://www.amazon.es/gp/bestsellers/dvd/ref=zg_bs_nav_0/258-9161685-0967252"
+}, {
+  "category": "Productos Handmade",
+  "href": "https://www.amazon.es/gp/bestsellers/handmade/ref=zg_bs_nav_0/258-9161685-0967252"
+}, {
+  "category": "Productos para mascotas",
+  "href": "https://www.amazon.es/gp/bestsellers/pet-supplies/ref=zg_bs_nav_0/258-9161685-0967252"
+}, {
+  "category": "Relojes",
+  "href": "https://www.amazon.es/gp/bestsellers/watch/ref=zg_bs_nav_0/258-9161685-0967252"
+}, {
+  "category": "Ropa",
+  "href": "https://www.amazon.es/gp/bestsellers/apparel/ref=zg_bs_nav_0/258-9161685-0967252"
+}, {
+  "category": "Salud y cuidado personal",
+  "href": "https://www.amazon.es/gp/bestsellers/hpc/ref=zg_bs_nav_0/258-9161685-0967252"
+}, {
+  "category": "Software",
+  "href": "https://www.amazon.es/gp/bestsellers/software/ref=zg_bs_nav_0/258-9161685-0967252"
+}, {
+  "category": "Tienda Kindle",
+  "href": "https://www.amazon.es/gp/bestsellers/digital-text/ref=zg_bs_nav_0/258-9161685-0967252"
+}, {
+  "category": "Videojuegos",
+  "href": "https://www.amazon.es/gp/bestsellers/videogames/ref=zg_bs_nav_0/258-9161685-0967252"
+}, {
+  "category": "Zapatos y complementos",
+  "href": "https://www.amazon.es/gp/bestsellers/shoes/ref=zg_bs_nav_0/258-9161685-0967252"
+}]
