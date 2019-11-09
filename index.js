@@ -18,72 +18,71 @@ const getListOfCategories = async (page, levelCategory) => {
   return  await page.evaluate((levelCategory) => {
     // Return a a serializable object
     const listCategoriesNodes = document.querySelector(`#zg_browseRoot ${'ul '.repeat(levelCategory)}`);
-    const listCategories = [];
-    for(let categoryNode of listCategoriesNodes.children){
-      listCategories.push({
-        category: categoryNode.innerText,
-        href: categoryNode.querySelector('a').href
-      })
+    if(listCategoriesNodes) {
+      const listCategories = [];
+      for(let categoryNode of listCategoriesNodes.children){
+        listCategories.push({
+          category: categoryNode.innerText,
+          href: categoryNode.querySelector('a').href
+        })
+      }
+      return listCategories;
+    } else {
+      return null;
     }
-
-    return listCategories;
   }, levelCategory);
 };
 
 
 const scrappeCategory = async (page,listCategories, parentCategory, targetCategories, levelCategory) => {
-  debugger
   for(let i=0; i < listCategories.length; i++){
     try {
-      debugger;
       await page.goto(listCategories[i].href, { waitUntil: 'networkidle0' });
+      console.log(`category: ${listCategories[i].category}, parentCategory: ${parentCategory}, levelCategory: ${levelCategory}`);
+
       const listProduct = await page.evaluate( async () => {
         const listProductNodes = document.querySelectorAll("#zg-ordered-list li");
         let listProduct = [];
         for(let productNode of listProductNodes){
-          const nRvw = Number(productNode.querySelector('.aok-inline-block.zg-item div a.a-size-small.a-link-normal').innerText);
-          const price = await window.getPriceFromString(productNode.querySelector('.aok-inline-block.zg-item  a.a-link-normal.a-text-normal span span').innerText);
-          const numReviewProduct = nRvw !== undefined ? nRvw : 0;
-          const priceProduct = price !== undefined ? price : 0;
+          const nReviewElement = productNode.querySelector('.aok-inline-block.zg-item div a.a-size-small.a-link-normal');
+          const nRvw = nReviewElement && nReviewElement.innerText;
+          const priceElement = productNode.querySelector('.aok-inline-block.zg-item  a.a-link-normal.a-text-normal span span');
+          const price = priceElement && await getPriceFromString(priceElement.innerText);
+          const linkElement = productNode.querySelector('.aok-inline-block.zg-item a');
+          const link = linkElement && linkElement.href;
+
+          const numReviewProduct = nRvw !== null ? nRvw : 0;
+          const priceProduct = price !== null ? price : 0;
+          const linkProduct = link !== null ? link : '';
           if(priceProduct > 30 && numReviewProduct > 50){
             listProduct.push({
               nameProduct: productNode.querySelector('.aok-inline-block.zg-item .p13n-sc-truncated').innerText,
               numReviewProduct,
               priceProduct,
-              href: productNode.querySelector('.aok-inline-block.zg-item a').href
+              href: linkProduct
             });
           }
         }
-
         return listProduct && listProduct.length > 0 && listProduct;
       });
-      debugger;
+      
       if(listProduct && listProduct.length >0){
+        console.log(`This category has ${listProduct.length}`);
         targetCategories.push({
-          category: listProduct[i].category,
+          category: listCategories[i].category,
           products: listProduct,
           href: listProduct[i].href,
           parent_id: parentCategory
         })
       }
+      console.log(`--------------------------------------------------------`);
 
       // Get the cagegories
-
-      debugger;
       const subCategories = await getListOfCategories(page, levelCategory);
-      debugger;
       if(subCategories && subCategories.length > 0) {
-        await scrappeCategory(page,subCategories, listCategories[i].category, targetCategories, ++levelCategory);
+        const newLevel = levelCategory + 1;
+        await scrappeCategory(page,subCategories, listCategories[i].category, targetCategories, newLevel);
       }
-      debugger;
-/*       const subCategories = await page.evaluate( async (numSubcategory) => {
-        debugger;
-        const subCategoriesElement = document.querySelector(`#zg_browseRoot ${'ul '.repeat(numSubcategory)}`);
-        debugger;
-
-      },numSubcategory);
- */
-
 
     } catch (error) {
       console.error(error);
@@ -94,8 +93,8 @@ const scrappeCategory = async (page,listCategories, parentCategory, targetCatego
 
 (async () => {
   try {
-    const browser = await puppeteer.launch({devtools: true, defaultViewport: null}); // {devtools: true} {defaultViewport: null}
-    // const browser = await puppeteer.launch(); // {devtools: true}
+    // const browser = await puppeteer.launch({devtools: true, defaultViewport: null}); // {devtools: true} {defaultViewport: null}
+    const browser = await puppeteer.launch(); // {devtools: true}
     const page = await browser.newPage();
     let listCategories;
     let levelCategory = 2;
@@ -122,30 +121,11 @@ const scrappeCategory = async (page,listCategories, parentCategory, targetCatego
     const targetCategories = [];
 
     await scrappeCategory(page,listCategories, undefined, targetCategories, levelCategory);
-
-    /* for(let i=0; i < listCategories.length; i++){
-
-      await page.goto(listCategories[i].href, { waitUntil: 'networkidle0' });
-      const listProduct = await page.evaluate( async () => {
-        const listProductNodes = document.querySelectorAll("#zg-ordered-list li");
-        // debugger;
-        let listProduct = [];
-        for(let productNode of listProductNodes){
-          const numReviewProduct = Number(productNode.querySelector('.aok-inline-block.zg-item div a.a-size-small.a-link-normal').innerText);
-          const priceProduct = await window.getPriceFromString(productNode.querySelector('.aok-inline-block.zg-item   a.a-link-normal.a-text-normal span span').innerText);
-          if(priceProduct > 30 && numReviewProduct > 50){
-            debugger;
-            listProduct.push({
-              nameProduct: productNode.querySelector('.aok-inline-block.zg-item .p13n-sc-truncated').innerText,
-              numReviewProduct,
-              priceProduct,
-              href: productNode.querySelector('.aok-inline-block.zg-item a').href
-            });
-          }
-        }
-      });
-      debugger;
-    } */
+    debugger
+    if(targetCategories.length > 0){
+      await writeFile('./asserts/target-categories.json', JSON.stringify(targetCategories));
+    }
+    
 
     
     await page.close()
@@ -181,4 +161,4 @@ const scrappeCategory = async (page,listCategories, parentCategory, targetCatego
 ];
 
 const tree = arrayToTree(dataOne, { parentProperty: 'parent_id', customID: 'name'});
-debugger; */
+ */
