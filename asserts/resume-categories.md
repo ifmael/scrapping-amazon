@@ -29,6 +29,9 @@
 * Localizadores GPS (853)
 * Bolsas con compartimentos para cámaras y videocámaras (902)
 * Maletas y bolsas de viaje (910-914)
+* Juegos básicos para preparación de cerveza artesana (947)
+* Juegos de sartenes y ollas (952-961)
+* Pequenio electrodomestico (962-973, )
 
 
 
