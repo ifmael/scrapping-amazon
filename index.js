@@ -37,13 +37,17 @@ const getListOfCategories = async (page, levelCategory) => {
 const scrappeCategory = async (page,listCategories, parentCategory, targetCategories, levelCategory) => {
   for(let i=0; i < listCategories.length; i++){
     try {
+      // debugger;
       await page.goto(listCategories[i].href, { waitUntil: 'networkidle0' });
       console.log(`category: ${listCategories[i].category}, parentCategory: ${parentCategory}, levelCategory: ${levelCategory}`);
 
       const listProduct = await page.evaluate( async () => {
         const listProductNodes = document.querySelectorAll("#zg-ordered-list li");
         let listProduct = [];
+        let index = 1;
         for(let productNode of listProductNodes){
+          console.log(`index ${index}`);
+          index++;
           const nReviewElement = productNode.querySelector('.aok-inline-block.zg-item div a.a-size-small.a-link-normal');
           const nRvw = nReviewElement && nReviewElement.innerText;
           const priceElement = productNode.querySelector('.aok-inline-block.zg-item  a.a-link-normal.a-text-normal span span');
@@ -71,7 +75,7 @@ const scrappeCategory = async (page,listCategories, parentCategory, targetCatego
         targetCategories.push({
           category: listCategories[i].category,
           products: listProduct,
-          href: listProduct[i].href,
+          href: listCategories[i].href,
           parent_id: parentCategory
         })
       }
@@ -99,7 +103,7 @@ const scrappeCategory = async (page,listCategories, parentCategory, targetCatego
     let listCategories;
     let levelCategory = 2;
 
-    await page.exposeFunction('getPriceFromString', getPriceFromString);
+   /*  await page.exposeFunction('getPriceFromString', getPriceFromString);
     await page.goto(BESTSELLER_URL, { waitUntil: 'networkidle0' });
 
 
@@ -129,7 +133,23 @@ const scrappeCategory = async (page,listCategories, parentCategory, targetCatego
 
     
     await page.close()
-    await browser.close();
+    await browser.close(); */
+
+    const listCategoriesRaw = await readFile('./asserts/target-categories-format-parent.json', 'utf8');
+    const list = JSON.parse(listCategoriesRaw)
+    let index = 1;
+    let filterCategies = ''
+    for(let i=0 ; i <list.length ; i++){
+      if(list[i].products && list[i].products.length >= 5){
+        console.log(`${index} ${list[i].category}, href: ${list[i].href}`);
+        filterCategies = filterCategies.concat(`${index} ${list[i].category}, href: ${list[i].href} \n`);
+        // console.log(`${index} ${list[i].category}, parent category: ${list[i].parent_id}`);
+        index++;
+      }
+    }
+    console.log(`Total of categories: ${list.length}`);
+    await writeFile('./asserts/filter-categories.json', filterCategies);
+    //const tree = arrayToTree(list, { parentProperty: 'parent_id', customID: 'category'});
 
   } catch (error) {
     console.error(error);
