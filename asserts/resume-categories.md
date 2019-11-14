@@ -32,6 +32,9 @@
 * Juegos básicos para preparación de cerveza artesana (947)
 * Juegos de sartenes y ollas (952-961)
 * Pequenio electrodomestico (962-973, )
+* cortafiambres (982)
+* Hornos (984-986)
+* freidoras (988)
 
 
 
