@@ -36,6 +36,26 @@
 * Hornos (984-986)
 * freidoras (988)
 
+* cocina ()
+* comedor (1018-1020)
+* oficina (1040-1049)
+* zapateros (1053)
+* mesas (1058-1060)
+* Armarios (1071)
+* Arbol de navidad (1072)
+* Grifos de baneira (1081-1084)
+* Grifos de lavabo (1085)
+* armarios de suelo (1088)
+* armarios plegables (1091)
+* Zapateros y hormas para zapatos (1093)
+* Cubo de basura (1099-1102, 1108-1110)
+* Envasadoras al vacío (1106)
+* Carritos de la compra (1112)
+* Climatizacion (1114-1128)
+* maquina de coser (1129)
+* Limpiadoras de vapor (1140-1141)
+* planchas (1144-1148)
+* iluminacion (1170-)
 
 
 
