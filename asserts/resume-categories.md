@@ -98,15 +98,43 @@
 * Mantas de actividades (1442-1443)
 * Juego de tablero (1446)
 * Camara digitales (1450)
-* ordenadores educativos (1451)
+* ordenaFdores educativos (1451)
 * Casas de muñecas (1456-1459)
 * Playmobil
 * Radiocontrol(1473-1478)
-
-
+* Destructoras de papel (1498)
+* Etiqutadoras (1501)
+* Encuadernadoras (1507-1512)
+* Plastificadoras (1508)
+* Cajas de efectivo (1514)
+* escritorios (1525)
+* Luces acuarios (1538)
+* Arboles para gatos (1540)
+* Comedores automaticos (1541-1551)
+* Articulos entrenamiento (1543)
+* afeitadoras y depilacion (1568)
+* afeitadoras electricas (1575-1581)
+* Cortapelos, barberos y afeitadoras (1582-1585)
+* Depilación (1586-1590)
+* Masajeadores electrico (1596-1601)
+* Mantas electricas (1605,1623)
+* Fototerapia (1607-1608,1619-1620)
+* Cepillosde dientes electricos (1609-1612)
+* Irrigadores dentales (1613)
+* Inhalador de vapor (1614-1615)
+* Sexo y sexualidad (1625-1628)
+* Amplificadores de sonido (1633)
+* Ayudas para deficiencia visual (1635-1635)
+* Tacatás, andadores y accesorios (1637-1638)
+* Electroestimuladores musculares y nerviosos (1640)
+* Monitores de diagnóstico y salud (1641-1644)
+* Tensiómetros (1648-1651)
+* gym 1652-1655
+* Aparatos y utensilios de peluquería (1658-1666)
 
 
 Termóstato, 
 juegos y juguetes, Hobbies, radio control, robots --> https://www.amazon.es/gp/bestsellers/toys/1642150031/ref=zg_bs_nav_t_3_1642143031*
 
 drones?? 824
+
